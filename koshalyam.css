@@ -61,16 +61,30 @@ header {
 }
 
 .nav-menu {
-    display: none;
     position: fixed;
     top: 60px;
     right: 0;
     width: 100%;
-    height: 40vh;
+    height: fit-content;
+    padding: 1% 0;
     background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
     justify-content: center;
     align-items: flex-end;
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: 99;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
 }
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto; /* Enable clicks when visible */
+}
+
 
 
 
@@ -85,11 +99,11 @@ header {
 .menu-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
-
+/* 
 .nav-menu.active {
     display: flex;
     flex-direction: column;
-}
+} */
 
 
 
@@ -121,7 +135,7 @@ header {
     height: 3vw;
     overflow: hidden;
     z-index: 11;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
     /* text-align: center; */
 }
 .elem-wrapper{
